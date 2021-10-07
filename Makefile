@@ -7,6 +7,7 @@ LIB =
 INCLUDE = -Iinclude/
 
 SRC_DIR = ./src
+OBJ_DIR = ./obj
 
 TARGET = main
 
@@ -14,10 +15,16 @@ SRCS = $(notdir $(wildcard $(SRC_DIR)/*.c))
 OBJS = $(SRCS:.c=.o)
 DEPS = $(SRCS:.c=.d)
 
+OBJECTS = $(patsubst %.o, $(OBJ_DIR)/%.o, $(OBJS))
+DEPS = $(OBJECTS:.o=.d)
+
 all: main
 
-$/%.o : $(SRC_DIR)/%.c
+$(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@ -MD
 
-$(TARGET) : $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(TARGET)
+$(TARGET) : $(OBJECTS)
+	$(CC) $(CFLAGS) $(OBJECTS) -o $(TARGET)
+
+clean:
+	rm -f $(OBJECTS) $(DEPS) $(TARGET)
