@@ -8,8 +8,7 @@
 
 void main_menu(const char* message)
 {
-	ems employee;
-
+	system("clear");
     printf("                    ▄   ▄  ▄▄   ▄ ▄▄▄   ▄▄▄▄   ▄▄  ▄▄▄  ▄  ▄                   \n");
     printf("                    █▀▄▀█ █  █  ▄ █  █  █ █ █ █▄▄█ █  █ █  █                   \n");
     printf("                    █   █ ▀▄▄▀▄ █ █  █  █ █ █ ▀▄▄  █  █ ▀▄▄▀▄                  \n");
@@ -24,12 +23,12 @@ void main_menu(const char* message)
 unknown_char_main_menu_retry:
     switch(getchar()){
         case '1':
-			READ_FILE == NULL ? main_menu("") : view_employees(&employee);
+			(employee_fp = fopen("Employee.txt", "r"))  == NULL ? main_menu("") : view_employees(&employee);
 			break;
-        case '2':
+		case '2':
 			break;
         case '3':
-			READ_FILE == NULL ? main_menu("") : add(&employee);
+			(employee_fp = fopen("Employee.txt", "r")) == NULL ? main_menu("") : add(&employee);
 			break;
 		case '0': 
             exit(0);

@@ -9,13 +9,18 @@
 #include <ctype.h>
 #include <time.h>
 
-#define READ_FILE   (employee_fp = fopen( "Employee.txt", "r" ))
-#define APPEND_FILE (employee_fp = fopen( "Employee.txt", "a+"))
-
 FILE* employee_fp;
 
 typedef struct ems{
-	char 		 id[10];
+	char         id[10];
 	char first_name[50];
 	char  last_name[50];
 }ems;
+ems employee;
+
+typedef struct coordinate{
+	int   start_pos;
+	int   end_pos;
+	int	  after_the_end_position;
+}coordinate;
+coordinate coord;
