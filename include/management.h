@@ -7,7 +7,7 @@
 #ifndef MANAGEMENT_H_
 #define MANAGEMENT_H_
 
-#include "ems.h"
+#include "employee_update.h"
 //#include "console.h"
 
 void add(ems* employee);
