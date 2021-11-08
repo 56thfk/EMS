@@ -1,5 +1,5 @@
 /*
-    EMS - find_employee.h
+    EMS - fileio.h
     Employee Management System
 	Copyright (C) 2021 Naive-C <naive.c.cell@gmail.com>
 */
@@ -11,8 +11,8 @@
 #include "ems.h"
 
 size_t return_file_length(const int fd);
-struct coordinate* find_employee(const char* id, coordinate* coord); 
-void READ_FILE(FILE* employee_fp);
+coordinate* find_employee(const char* id, coordinate* coord); 
+void RW_FILE(FILE* employee_fp);
 void APPEND_FILE(FILE* employee_fp);
 
 #endif

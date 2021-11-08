@@ -1,14 +1,14 @@
 /*
-	EMS - core.c
+	EMS - fileio.c
 	Employee Management System
 	Copyright (C) 2021 Naive-C <naive.c.cell@gmail.com>
 */
 
 #include "fileio.h"
 
-struct coordinate* find_employee(const char* id, coordinate* coord) 
+coordinate* find_employee(const char* id, coordinate* coord) 
 {
-	READ_FILE(employee_fp);
+	RW_FILE(employee_fp);
 
 	size_t off_set, file_length;
 	off_set = file_length = 0;
@@ -45,9 +45,9 @@ size_t return_file_length(const int fd)
 	return size;
 }
 
-void READ_FILE()
+void RW_FILE()
 {
-	if((employee_fp = fopen("Employee.txt", "r")) == NULL){
+	if((employee_fp = fopen("Employee.txt", "r+w")) == NULL){
 		fprintf(stderr, "		%s >>> READ_FILE: no such file", __func__);
 		exit(1);
 	}
