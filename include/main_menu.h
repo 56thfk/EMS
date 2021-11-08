@@ -9,6 +9,6 @@
 
 #include "management.h"
 
-void main_menu(const char* message);
+void main_menu();
 
 #endif
