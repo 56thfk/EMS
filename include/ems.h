@@ -13,8 +13,9 @@ FILE* employee_fp;
 
 typedef struct ems{
 	char         id[10];
-	char first_name[50];
-	char  last_name[50];
+	char first_name[15];
+	char  last_name[15];
+	size_t 		 salary;
 }ems;
 ems employee;
 
